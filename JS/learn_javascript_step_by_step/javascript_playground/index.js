@@ -1,4 +1,1 @@
-var myName = 'Bartosz';
-console.log('Hi,', myName);
-myName = 'Ciesielczyk';
-console.log(myName);
+console.log(Math.floor(Math.random() * 10));
