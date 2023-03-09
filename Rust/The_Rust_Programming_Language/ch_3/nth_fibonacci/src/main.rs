@@ -1,5 +1,5 @@
 fn main() {
-    generate_nth_fibonacci_number(19)
+    fibonacci_iterative(14)
 }
 
 fn generate_nth_fibonacci_number(n: i32) {
@@ -22,4 +22,17 @@ fn generate_nth_fibonacci_number(n: i32) {
     } else {
         println!("Only positive numbers are allowed");
     }
+}
+
+fn fibonacci_iterative(n: i32) {
+    let mut result = vec![0, 1];
+
+    for _i in 2..=n {
+        let a = result[result.len() - 1];
+        let b = result[result.len() - 2];
+
+        result.push(a + b)
+    }
+
+    println!("The nth number is... {}", result[result.len() - 1])
 }
