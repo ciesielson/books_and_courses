@@ -4,6 +4,27 @@ fn main () {
 
 }
 
+// https://www.codewars.com/kata/5672a98bdbdd995fad00000f/train/rust
+// Let's play! You have to return which player won! In case of a draw return Draw!.
+//
+// Examples(Input1, Input2 --> Output):
+//
+// "scissors", "paper" --> "Player 1 won!"
+// "scissors", "rock" --> "Player 2 won!"
+// "paper", "paper" --> "Draw!"
+
+fn rps(p1: &str, p2: &str) -> &'static str  {
+    match (p1, p2) {
+        ("scissors", "paper") => "Player 1 won!",
+        ("paper", "scissors") => "Player 2 won!",
+        ("scissors", "rock") => "Player 2 won!",
+        ("rock", "scissors") => "Player 1 won!",
+        ("paper", "rock") => "Player 1 won!",
+        ("rock", "paper") => "Player 2 won!",
+        _ => "Draw!"
+    }
+}
+
 // https://www.notion.so/Calculate-average-5af64a089e234ef188abe7da0af40cae?pvs=4
 // Write a function which calculates the average of the numbers in a given list.
 //
@@ -34,6 +55,7 @@ fn count_by(x: u32, n: u32) -> Vec<u32> {
 mod tests {
     use crate::count_by;
     use crate::find_average;
+    use crate::rps;
 
     #[test]
     fn count_by_works() {
@@ -49,6 +71,12 @@ mod tests {
 
         let result = find_average(&input);
         assert_eq!(15.384615384615385, result);
+    }
+
+    #[test]
+    fn rps_works() {
+        let result = rps("scissors", "rock");
+        assert_eq!("Player 2 won!", result);
     }
 }
 
